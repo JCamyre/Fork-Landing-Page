@@ -3,3 +3,8 @@
 @tailwind components;
 
 @tailwind utilities;
+
+Maybe gellix font
+html {
+  font-family: 'Outfit', sans-serif;
+}

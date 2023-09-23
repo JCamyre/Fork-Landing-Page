@@ -3,27 +3,28 @@ import { Section } from '../layout/Section';
 
 const VerticalFeatures = () => (
   <Section
-    title="Your title here"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada nisi tellus, non imperdiet nisi tempor at."
+    title="We also care about we eat"
+    description="We understand how hard it can be to find a dish that fits our goals and needs, and we don't all have time to read nutrition facts and ingredient lists. That's why we created Fork, so that you can spend less time researching, and more time eating.
+    As of 2023, over 75% of college students don't know what they are putting in their bodies. Over 50% of the foods served at dining halls across the nation contain processed carbs, artificial ingredients, or unhealthy fat. It is an important time than ever to eat the right foods, and we just made it easier."
   >
     <VerticalFeatureRow
-      title="Your title here"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
+      title="This app is meant for everyone"
+      description="No matter what your diet plan, health goals, or dietary restrictions are, Fork has you covered. We have made sure to include all major plans so that you can find the next dish for you."
       image="/assets/screenshots/screenshot1.png"
-      imageAlt="First feature alt text"
+      imageAlt="Screen 1"
     />
     <VerticalFeatureRow
-      title="Your title here"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
+      title="Finding the ✨Perfect Dish✨"
+      description="After creating your profile, it's eating time. Whenever you're ready to dig in to your next meal, just open up the app. You will be greeted by restaurants near you that fit your health goals and dietary needs. We even tell you why we recommend it, so you can be sure it is right for you."
       image="/assets/screenshots/screenshot2.png"
-      imageAlt="Second feature alt text"
+      imageAlt="Screen 2"
       reverse
     />
     <VerticalFeatureRow
       title="Your title here"
       description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
       image="/assets/screenshots/screenshot3.png"
-      imageAlt="Third feature alt text"
+      imageAlt="Screen 3"
     />
   </Section>
 );

@@ -11,17 +11,17 @@ const Hero = () => (
   <Background color="bg-primary-200">
     <Section yPadding="py-6">
       <NavbarTwoColumns logo={<Logo xl />}>
-        <p></p>
+        <></>
       </NavbarTwoColumns>
     </Section>
 
     <Section yPadding="pt-20 pb-32">
       <HeroOneButton
         title={<span className="text-white">Fork</span>}
-        description="Your ultimate companion for effortlessly embracing healthy eating"
+        description="Your companion for effortlessly healthy eating"
         button={
           <Link href="https://creativedesignsguru.com/category/nextjs/">
-            <Button xl>Download Your Free Theme</Button>
+            <Button xl>Sign Up For Updates!</Button>
           </Link>
         }
       />
