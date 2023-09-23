@@ -21,8 +21,8 @@ const VerticalFeatures = () => (
       reverse
     />
     <VerticalFeatureRow
-      title="Your title here"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
+      title="How We Guarantee you the Perfect Dish"
+      description="By harnessing the power of AI, we are able to take into account the ingredients and nutritional facts of all dishes, and determine which fit your health goals, diet plan, dietary restrictions, and macronutrient goals."
       image="/assets/screenshots/screenshot3.png"
       imageAlt="Screen 3"
     />
