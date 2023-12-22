@@ -18,7 +18,7 @@ const Hero = () => (
     <Section yPadding="pt-20 pb-32">
       <HeroOneButton
         title={<span className="text-white">Fork</span>}
-        description="Your companion for effortlessly healthy eating"
+        description="Your ML-powered healthy eating companion"
         button={
           <Link href="https://creativedesignsguru.com/category/nextjs/">
             <Button xl>Sign Up For Updates!</Button>
