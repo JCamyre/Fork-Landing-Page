@@ -16,8 +16,7 @@ const HeroOneButton = (props: IHeroOneButtonProps) => (
     </h1>
     <div className="mb-16 mt-4 text-2xl text-white">{props.description}</div>
     <Section yPadding="pt-20 pb-32">
-      <TextInput label="example@gmail.com" />
-      {props.button}
+      <TextInput label="example@gmail.com" SubmitButton={props.button} />
     </Section>
   </header>
 );

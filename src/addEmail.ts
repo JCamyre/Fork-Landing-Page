@@ -1,6 +1,3 @@
-// pages/api/addEmail.ts
-// This import is used for type definitions only
-
 import { addDoc, collection } from 'firebase/firestore';
 import db from 'firebaseConfig';
 

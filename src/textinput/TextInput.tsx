@@ -1,5 +1,5 @@
 import type { FormEvent, KeyboardEvent } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import addEmail from '../addEmail';
 import styles from './Input.module.css';
@@ -11,6 +11,7 @@ interface InputProps {
   error?: string;
   label?: string;
   predicted?: string;
+  SubmitButton: React.ReactNode;
   id?: number; // Assuming id should be a prop based on the render usage
 }
 
@@ -20,6 +21,7 @@ const Input: React.FC<InputProps> = ({
   // value: initialValue = '',
   // error: initialError = '',
   label: initialLabel = 'Label',
+  SubmitButton,
   predicted,
   id = 1, // Default id value set to 1 if not passed
 }) => {
@@ -28,13 +30,6 @@ const Input: React.FC<InputProps> = ({
   // const [error, setError] = useState<string>(initialError);
   const [label] = useState<string>(initialLabel);
   const [email, setEmail] = useState('');
-
-  useEffect(() => {
-    console.log('WE about to run addEmail()');
-    addEmail('jwcamry03@gmail.com').then(() => {
-      console.log('Good job!');
-    });
-  }, []);
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.which === 13) {
@@ -89,7 +84,7 @@ const Input: React.FC<InputProps> = ({
           <label htmlFor={`input-${id}`} className={labelClassName}>
             {label}
           </label>
-          <button type="submit">Submit</button>
+          {SubmitButton}
         </form>
       </div>
     </div>

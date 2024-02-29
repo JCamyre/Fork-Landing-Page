@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Button } from '@/button/Button';
 
 import { Background } from '../background/Background';
 import { HeroOneButton } from '../hero/HeroOneButton';
@@ -19,9 +19,9 @@ const Hero = () => (
         title={<span className="text-white">Fork</span>}
         description="Your ML-powered healthy eating companion"
         button={
-          <Link href="https://creativedesignsguru.com/category/nextjs/">
-            {/* <Button xl>Sign Up For Updates!</Button> */}
-          </Link>
+          <button type="submit">
+            <Button xl>Sign Up For Updates!</Button>
+          </button>
         }
       />
     </Section>
