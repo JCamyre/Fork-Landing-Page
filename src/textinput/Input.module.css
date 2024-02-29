@@ -33,7 +33,7 @@
 .field.active input + label {
   top: 4px;
   opacity: 1;
-  color: #512da8;
+  color: #AD8CFF;
 }
 
 .field.locked {
