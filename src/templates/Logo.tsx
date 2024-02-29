@@ -14,8 +14,12 @@ const Logo = (props: ILogoProps) => {
   };
 
   return (
-    <span className={`inline-flex items-center text-gray-900 ${fontStyle}`}>
-      <img src="/assets/images/fork-logo.svg" style={logoStyle} />
+    <span className={`inline-flex items-center text-white ${fontStyle}`}>
+      <img
+        src="/assets/images/fork-logo.svg"
+        style={logoStyle}
+        alt={`${AppConfig.site_name} Logo`}
+      />
       {AppConfig.site_name}
     </span>
   );
