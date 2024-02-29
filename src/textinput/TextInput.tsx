@@ -1,6 +1,7 @@
-import type { ChangeEvent, KeyboardEvent } from 'react';
+import type { FormEvent, KeyboardEvent } from 'react';
 import React, { useState } from 'react';
 
+import submitEmail from '../submitEmail';
 import styles from './Input.module.css';
 
 interface InputProps {
@@ -16,55 +17,61 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
   locked = false,
   active: initialActive = false,
-  value: initialValue = '',
-  error: initialError = '',
+  // value: initialValue = '',
+  // error: initialError = '',
   label: initialLabel = 'Label',
   predicted,
   id = 1, // Default id value set to 1 if not passed
 }) => {
   const [active, setActive] = useState<boolean>(locked && initialActive);
-  const [value, setValue] = useState<string>(initialValue);
-  const [error, setError] = useState<string>(initialError);
+  // const [value, setValue] = useState<string>(initialValue);
+  // const [error, setError] = useState<string>(initialError);
   const [label] = useState<string>(initialLabel);
-
-  const changeValue = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-    setError('');
-  };
+  const [email, setEmail] = useState('');
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.which === 13) {
       // Enter key
-      setValue(predicted || '');
+      setEmail(predicted || '');
     }
   };
 
   const fieldClassName = `${styles.field} ${
-    (locked ? active : active || value) ? styles.active : ''
+    (locked ? active : active || email) ? styles.active : ''
   } ${locked && !active ? styles.locked : ''}`;
 
-  const labelClassName = error ? styles.error : '';
+  const labelClassName = '';
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await submitEmail(email);
+    // After submission, you can clear the form or give user feedback
+    setEmail('');
+    // alert('Email submitted successfully!');
+  };
 
   return (
     <div className={styles.mainInput}>
       <div className={fieldClassName}>
-        {active && value && predicted && predicted.includes(value) && (
-          <p className={styles.predicted}>{predicted}</p>
-        )}
-        <input
-          id={id.toString()}
-          type="text"
-          value={value}
-          placeholder={label}
-          onChange={changeValue}
-          onKeyPress={handleKeyPress}
-          onFocus={() => !locked && setActive(true)}
-          onBlur={() => !locked && setActive(false)}
-          className={styles.input} // Apply the input style
-        />
-        <label htmlFor={`input-${id}`} className={labelClassName}>
-          {error || label}
-        </label>
+        <form onSubmit={handleSubmit}>
+          {active && email && predicted && predicted.includes(email) && (
+            <p className={styles.predicted}>{predicted}</p>
+          )}
+          <input
+            id={id.toString()}
+            type="text"
+            value={email}
+            placeholder={label}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyPress={handleKeyPress}
+            onFocus={() => !locked && setActive(true)}
+            onBlur={() => !locked && setActive(false)}
+            className={styles.input} // Apply the input style
+          />
+          <label htmlFor={`input-${id}`} className={labelClassName}>
+            {label}
+          </label>
+        </form>
       </div>
     </div>
   );

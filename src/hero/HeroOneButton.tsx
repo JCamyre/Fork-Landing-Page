@@ -1,5 +1,8 @@
 import type { ReactNode } from 'react';
 
+import { Section } from '@/layout/Section';
+import TextInput from '@/textinput/TextInput';
+
 type IHeroOneButtonProps = {
   title: ReactNode;
   description: string;
@@ -12,8 +15,10 @@ const HeroOneButton = (props: IHeroOneButtonProps) => (
       {props.title}
     </h1>
     <div className="mb-16 mt-4 text-2xl text-white">{props.description}</div>
-
-    {props.button}
+    <Section yPadding="pt-20 pb-32">
+      <TextInput label="example@gmail.com" />
+      {props.button}
+    </Section>
   </header>
 );
 

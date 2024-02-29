@@ -5,7 +5,6 @@ import { Button } from '../button/Button';
 import { HeroOneButton } from '../hero/HeroOneButton';
 import { Section } from '../layout/Section';
 import { NavbarTwoColumns } from '../navigation/NavbarTwoColumns';
-import TextInput from '../textinput/TextInput';
 import { Logo } from './Logo';
 
 const Hero = () => (
@@ -26,7 +25,6 @@ const Hero = () => (
           </Link>
         }
       />
-      <TextInput label="example@gmail.com" />
     </Section>
   </Background>
 );
