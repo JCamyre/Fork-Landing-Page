@@ -1,14 +1,16 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 type ISectionProps = {
   title?: string;
   description?: string;
   yPadding?: string;
+  style?: CSSProperties;
   children: ReactNode;
 };
 
 const Section = (props: ISectionProps) => (
   <div
+    style={props.style ?? props.style}
     className={`mx-auto max-w-screen-lg px-3 ${
       props.yPadding ? props.yPadding : 'py-16'
     }`}

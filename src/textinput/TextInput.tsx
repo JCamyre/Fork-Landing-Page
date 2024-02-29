@@ -67,7 +67,7 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <div className={styles.mainInput}>
+    <div className={styles.mainInput} style={{ width: '100%' }}>
       <div className={fieldClassName}>
         <form onSubmit={handleSubmit}>
           {active && email && predicted && predicted.includes(email) && (

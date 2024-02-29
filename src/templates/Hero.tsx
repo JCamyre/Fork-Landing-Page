@@ -15,6 +15,7 @@ const Hero = () => (
     </Section>
 
     <Section yPadding="pt-20 pb-32">
+      {/* <div style={{ display: 'flex', justifyContent: 'right' }}> */}
       <HeroOneButton
         title={<span className="text-white">Fork</span>}
         description="Your ML-powered healthy eating companion"
@@ -25,6 +26,7 @@ const Hero = () => (
         }
         submittedButton={<Button xl>Submitted! ✓</Button>}
       />
+      {/* </div> */}
     </Section>
   </Background>
 );
