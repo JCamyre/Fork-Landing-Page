@@ -12,6 +12,7 @@ interface InputProps {
   label?: string;
   predicted?: string;
   SubmitButton: React.ReactNode;
+  SubmittedButton: React.ReactNode;
   id?: number; // Assuming id should be a prop based on the render usage
 }
 
@@ -22,6 +23,7 @@ const Input: React.FC<InputProps> = ({
   // error: initialError = '',
   label: initialLabel = 'Label',
   SubmitButton,
+  SubmittedButton,
   predicted,
   id = 1, // Default id value set to 1 if not passed
 }) => {
@@ -30,6 +32,7 @@ const Input: React.FC<InputProps> = ({
   // const [error, setError] = useState<string>(initialError);
   const [label] = useState<string>(initialLabel);
   const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.which === 13) {
@@ -53,6 +56,7 @@ const Input: React.FC<InputProps> = ({
     addEmail(emailValue)
       .then(() => {
         // Handle the success scenario
+        setSubmitted(true);
       })
       .catch((error) => {
         // Handle the error scenario
@@ -84,7 +88,7 @@ const Input: React.FC<InputProps> = ({
           <label htmlFor={`input-${id}`} className={labelClassName}>
             {label}
           </label>
-          {SubmitButton}
+          {submitted ? SubmittedButton : SubmitButton}
         </form>
       </div>
     </div>

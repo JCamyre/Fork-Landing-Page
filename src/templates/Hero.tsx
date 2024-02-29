@@ -23,6 +23,7 @@ const Hero = () => (
             <Button xl>Sign Up For Updates!</Button>
           </button>
         }
+        submittedButton={<Button xl>Submitted! ✓</Button>}
       />
     </Section>
   </Background>
