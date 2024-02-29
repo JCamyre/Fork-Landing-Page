@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { Button } from '../button/Button';
 import { CTABanner } from '../cta/CTABanner';
 import { Section } from '../layout/Section';
@@ -10,10 +8,11 @@ const Banner = () => (
       title="Sign up to get launch updates."
       subtitle="Get started for free."
       button={
-        <Link href="https://creativedesignsguru.com/category/nextjs/">
-          <Button>Sign up</Button>
-        </Link>
+        <button type="submit">
+          <Button xl>Sign Up For Updates!</Button>
+        </button>
       }
+      submittedButton={<Button xl>Submitted! ✓</Button>}
     />
   </Section>
 );

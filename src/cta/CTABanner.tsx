@@ -1,9 +1,12 @@
 import type { ReactNode } from 'react';
 
+import TextInput from '../textinput/TextInput';
+
 type ICTABannerProps = {
   title: string;
   subtitle: string;
   button: ReactNode;
+  submittedButton: ReactNode;
 };
 
 const CTABanner = (props: ICTABannerProps) => (
@@ -14,7 +17,11 @@ const CTABanner = (props: ICTABannerProps) => (
     </div>
 
     <div className="whitespace-no-wrap mt-3 sm:ml-2 sm:mt-0">
-      {props.button}
+      <TextInput
+        label="example@gmail.com"
+        SubmitButton={props.button}
+        SubmittedButton={props.submittedButton}
+      />
     </div>
   </div>
 );
