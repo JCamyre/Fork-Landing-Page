@@ -1,7 +1,7 @@
 import type { FormEvent, KeyboardEvent } from 'react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import submitEmail from '../submitEmail';
+import addEmail from '../addEmail';
 import styles from './Input.module.css';
 
 interface InputProps {
@@ -29,6 +29,13 @@ const Input: React.FC<InputProps> = ({
   const [label] = useState<string>(initialLabel);
   const [email, setEmail] = useState('');
 
+  useEffect(() => {
+    console.log('WE about to run addEmail()');
+    addEmail('jwcamry03@gmail.com').then(() => {
+      console.log('Good job!');
+    });
+  }, []);
+
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.which === 13) {
       // Enter key
@@ -44,10 +51,20 @@ const Input: React.FC<InputProps> = ({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await submitEmail(email);
-    // After submission, you can clear the form or give user feedback
+    const target = event.target as typeof event.target & {
+      email: { value: string };
+    };
+    const emailValue = target.email.value;
+    addEmail(emailValue)
+      .then(() => {
+        // Handle the success scenario
+      })
+      .catch((error) => {
+        // Handle the error scenario
+        console.error(error);
+      });
+    // Clear the email input after form submission
     setEmail('');
-    // alert('Email submitted successfully!');
   };
 
   return (
@@ -59,6 +76,7 @@ const Input: React.FC<InputProps> = ({
           )}
           <input
             id={id.toString()}
+            name="email"
             type="text"
             value={email}
             placeholder={label}
@@ -71,6 +89,7 @@ const Input: React.FC<InputProps> = ({
           <label htmlFor={`input-${id}`} className={labelClassName}>
             {label}
           </label>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
