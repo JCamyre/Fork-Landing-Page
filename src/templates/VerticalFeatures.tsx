@@ -6,7 +6,7 @@ const VerticalFeatures = () => (
   <Section
     title="We also care about we eat"
     description="We understand how hard it can be to find a dish that fits our goals and needs, and we don't all have time to read nutrition facts and ingredient lists. That's why we created Fork, so that you can spend less time researching, and more time eating.
-    As of 2023, over 75% of college students don't know what they are putting in their bodies. Over 50% of the foods served at dining halls across the nation contain processed carbs, artificial ingredients, or unhealthy fat. It is an important time than ever to eat the right foods, and we just made it easier."
+    As of 2023, over 65% of college students don't know what they are putting in their bodies. Students are eating more than the double the recommended amount of added sugar and less than half the amount recommended of whole foods. It is an important time than ever to eat the right foods, and we just made it easier."
   >
     <VerticalFeatureRow
       title="This app is meant for everyone"
