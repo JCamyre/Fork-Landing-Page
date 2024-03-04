@@ -11,11 +11,32 @@ function VideoPlayer({ src, type, playbackSpeed }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const video = videoRef.current;
     // Check if the video element is loaded
-    if (videoRef.current) {
+    if (video) {
       // Set the playback rate to 0.5 to play the video at half speed
-      videoRef.current.playbackRate = playbackSpeed;
+      video.playbackRate = playbackSpeed;
     }
+
+    // Function to stop fullscreen
+    const preventFullScreen = (event: Event) => {
+      event.preventDefault();
+      if (event.stopPropagation) event.stopPropagation();
+    };
+
+    // Add event listeners to prevent fullscreen
+    video?.addEventListener('fullscreenchange', preventFullScreen);
+    video?.addEventListener('webkitfullscreenchange', preventFullScreen);
+    video?.addEventListener('mozfullscreenchange', preventFullScreen);
+    video?.addEventListener('MSFullscreenChange', preventFullScreen);
+
+    return () => {
+      // Clean up event listeners
+      video?.removeEventListener('fullscreenchange', preventFullScreen);
+      video?.removeEventListener('webkitfullscreenchange', preventFullScreen);
+      video?.removeEventListener('mozfullscreenchange', preventFullScreen);
+      video?.removeEventListener('MSFullscreenChange', preventFullScreen);
+    };
   }, []); // Empty dependency array means this effect runs once on mount
 
   return (
