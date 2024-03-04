@@ -42,7 +42,7 @@ const VerticalFeatures = () => (
           width="500"
           height="1025"
           src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F0054IIPKH2yd9qMfuNsdqU%2FFork-App-(Copy)%3Fnode-id%3D3277-4056%26mode%3Ddesign%26t%3DVNdFGqjGGevN54Jk-1&hide-ui=1"
-          // allowfullscreen
+          allowFullScreen
         ></iframe>
       }
       videoAlt="Fork Demo"
