@@ -1,7 +1,6 @@
 import type { FormEvent, KeyboardEvent } from 'react';
 import React, { useState } from 'react';
 
-import addEmail from '../addEmail';
 import styles from './Input.module.css';
 
 interface InputProps {
@@ -52,8 +51,14 @@ const Input: React.FC<InputProps> = ({
     const target = event.target as typeof event.target & {
       email: { value: string };
     };
-    const emailValue = target.email.value;
-    addEmail(emailValue)
+    const response = target.email.value;
+    fetch('/api/addEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
       .then(() => {
         // Handle the success scenario
         setSubmitted(true);
@@ -64,6 +69,9 @@ const Input: React.FC<InputProps> = ({
       });
     // Clear the email input after form submission
     setEmail('');
+    if (!response) {
+      throw new Error('Network response was not ok');
+    }
   };
 
   return (
