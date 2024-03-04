@@ -8,6 +8,7 @@ type IHeroOneButtonProps = {
   description: string;
   button: ReactNode;
   submittedButton: ReactNode;
+  subtitle?: string;
 };
 
 const HeroOneButton = (props: IHeroOneButtonProps) => (
@@ -16,7 +17,10 @@ const HeroOneButton = (props: IHeroOneButtonProps) => (
       {props.title}
     </h1>
     <div className="mb-16 mt-4 text-2xl text-white">{props.description}</div>
-    <Section yPadding="pt-20 pb-32">
+    <div className="mb-16 mt-4 text-4xl text-white">
+      {props.subtitle && props.subtitle}
+    </div>
+    <Section yPadding="pt-8 pb-16">
       <TextInput
         label="example@gmail.com"
         SubmitButton={props.button}

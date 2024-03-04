@@ -14,11 +14,12 @@ const Hero = () => (
       </NavbarTwoColumns>
     </Section>
 
-    <Section yPadding="pt-20 pb-32">
+    <Section yPadding="pt-8 pb-16">
       {/* <div style={{ display: 'flex', justifyContent: 'right' }}> */}
       <HeroOneButton
         title={<span className="text-white">Fork</span>}
         description="Your ML-powered healthy eating companion"
+        subtitle="Coming Soon!"
         button={
           <button type="submit">
             <Button xl>Sign Up For Updates!</Button>
