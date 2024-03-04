@@ -36,3 +36,4 @@ local
 
 # firebase creds
 fork-credentials.json
+.env
