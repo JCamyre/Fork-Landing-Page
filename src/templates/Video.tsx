@@ -20,7 +20,7 @@ function VideoPlayer({ src, type, playbackSpeed }: VideoPlayerProps) {
 
     // Function to stop fullscreen
     const preventFullScreen = (event: Event) => {
-      event.preventDefault();
+      // event.preventDefault();
       if (event.stopPropagation) event.stopPropagation();
     };
 
