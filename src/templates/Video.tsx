@@ -20,7 +20,7 @@ function VideoPlayer({ src, type, playbackSpeed }: VideoPlayerProps) {
 
   return (
     <div>
-      <video loop={true} autoPlay={true} ref={videoRef} muted>
+      <video loop={true} autoPlay={true} ref={videoRef} muted playsInline>
         <source src={src} type={type} />
         Your browser does not support the video tag.
       </video>
