@@ -38,10 +38,11 @@ export default async function handler(
   if (req.method === 'POST') {
     try {
       const { email } = req.body;
-      await addDoc(collection(db, 'emails'), {
+      const docRef = await addDoc(collection(db, 'emails'), {
         email,
         createdAt: new Date(),
       });
+      console.log('Successfully written to db, ', docRef);
       res.status(200).json({ message: 'Email successfully added! ' });
     } catch (e) {
       console.error('Error adding document: ', e);
