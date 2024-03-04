@@ -1,5 +1,6 @@
 import { VerticalFeatureRow } from '../feature/VerticalFeatureRow';
 import { Section } from '../layout/Section';
+import VideoPlayer from './Video';
 
 const VerticalFeatures = () => (
   <Section
@@ -25,36 +26,26 @@ const VerticalFeatures = () => (
       title="This app is meant for everyone"
       description="No matter what your diet plan, health goals, or dietary restrictions are, Fork has you covered. We have made sure to include all major plans so that you can find the next dish for you."
       video={
-        <video
-          loop={true}
-          autoPlay={true}
-          // height="320"
-          // width="240"
-          muted
-          // className="z-0 min-h-screen object-cover"
-        >
-          <source
-            src="/assets/videos/Fork Demo for Website Final.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+        <VideoPlayer
+          src="/assets/videos/Fork Demo for Website Part 1.mp4"
+          type="video/mp4"
+          playbackSpeed={0.6}
+        />
       }
       videoAlt="Fork Demo"
-    />
-    {/* <VerticalFeatureRow
-      title="Finding the ✨Perfect Dish✨"
-      description="After creating your profile, it's eating time. Whenever you're ready to dig in to your next meal, just open up the app. You will be greeted by restaurants near you that fit your health goals and dietary needs. We even tell you why we recommend it, so you can be sure it is right for you."
-      image="/assets/screenshots/screenshot2.png"
-      imageAlt="Screen 2"
       reverse
-    /> */}
+    />
     <VerticalFeatureRow
       title="Finding the ✨Perfect Dish✨"
       description="By harnessing the power of AI, we are able to analyze dishes from restaurants near you and determine which fit your health goals, diet plan, dietary restrictions, and macronutrient goals."
-      image="/assets/screenshots/caesarsalad.png"
-      imageAlt="Caesar Salad on Home Screen"
-      reverse
+      video={
+        <VideoPlayer
+          src="/assets/videos/Fork Demo for Website Part 2.mp4"
+          type="video/mp4"
+          playbackSpeed={0.6}
+        />
+      }
+      videoAlt="Fork Demo"
     />
   </Section>
 );
