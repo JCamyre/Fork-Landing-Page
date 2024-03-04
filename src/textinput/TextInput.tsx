@@ -32,6 +32,7 @@ const Input: React.FC<InputProps> = ({
   const [label] = useState<string>(initialLabel);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.which === 13) {
@@ -46,11 +47,23 @@ const Input: React.FC<InputProps> = ({
 
   const labelClassName = '';
 
+  const emailRegex = /\S+@\S+\.\S+/;
+
+  const validateEmail = (emailInput: string): boolean => {
+    console.log('emailInput: ', emailInput);
+    return emailRegex.test(emailInput);
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const target = event.target as typeof event.target & {
       email: { value: string };
     };
+    if (!validateEmail(email)) {
+      setErrorMessage(true);
+      return;
+    }
+    setErrorMessage(false);
     const response = target.email.value;
     fetch('/api/addEmail', {
       method: 'POST',
@@ -93,6 +106,11 @@ const Input: React.FC<InputProps> = ({
           <label htmlFor={`input-${id}`} className={labelClassName}>
             {label}
           </label>
+          {errorMessage && (
+            <p style={{ color: 'white', fontSize: '24px' }}>
+              Please enter a valid email!
+            </p>
+          )}
           {submitted ? SubmittedButton : SubmitButton}
         </form>
       </div>
