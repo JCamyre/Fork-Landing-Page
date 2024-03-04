@@ -19,24 +19,24 @@ function VideoPlayer({ src, type, playbackSpeed }: VideoPlayerProps) {
     }
 
     // Function to stop fullscreen
-    const preventFullScreen = (event: Event) => {
-      // event.preventDefault();
-      if (event.stopPropagation) event.stopPropagation();
-    };
+    // const preventFullScreen = (event: Event) => {
+    //   event.preventDefault();
+    //   if (event.stopPropagation) event.stopPropagation();
+    // };
 
     // Add event listeners to prevent fullscreen
-    video?.addEventListener('fullscreenchange', preventFullScreen);
-    video?.addEventListener('webkitfullscreenchange', preventFullScreen);
-    video?.addEventListener('mozfullscreenchange', preventFullScreen);
-    video?.addEventListener('MSFullscreenChange', preventFullScreen);
+    // video?.addEventListener('fullscreenchange', preventFullScreen);
+    // video?.addEventListener('webkitfullscreenchange', preventFullScreen);
+    // video?.addEventListener('mozfullscreenchange', preventFullScreen);
+    // video?.addEventListener('MSFullscreenChange', preventFullScreen);
 
-    return () => {
-      // Clean up event listeners
-      video?.removeEventListener('fullscreenchange', preventFullScreen);
-      video?.removeEventListener('webkitfullscreenchange', preventFullScreen);
-      video?.removeEventListener('mozfullscreenchange', preventFullScreen);
-      video?.removeEventListener('MSFullscreenChange', preventFullScreen);
-    };
+    // return () => {
+    //   // Clean up event listeners
+    //   video?.removeEventListener('fullscreenchange', preventFullScreen);
+    //   video?.removeEventListener('webkitfullscreenchange', preventFullScreen);
+    //   video?.removeEventListener('mozfullscreenchange', preventFullScreen);
+    //   video?.removeEventListener('MSFullscreenChange', preventFullScreen);
+    // };
   }, []); // Empty dependency array means this effect runs once on mount
 
   return (
