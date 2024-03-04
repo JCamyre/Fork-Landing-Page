@@ -17,7 +17,7 @@ const HeroOneButton = (props: IHeroOneButtonProps) => (
       {props.title}
     </h1>
     <div className="mb-16 mt-4 text-2xl text-white">{props.description}</div>
-    <div className="mb-16 mt-4 text-4xl text-white">
+    <div className="mb-16 mt-4 text-4xl font-bold text-white">
       {props.subtitle && props.subtitle}
     </div>
     <Section yPadding="pt-8 pb-16">
