@@ -60,14 +60,11 @@ const Input: React.FC<InputProps> = ({
       body: JSON.stringify({ email }),
     })
       .then(() => {
-        // Handle the success scenario
         setSubmitted(true);
       })
       .catch((error) => {
-        // Handle the error scenario
         console.error(error);
       });
-    // Clear the email input after form submission
     setEmail('');
     if (!response) {
       throw new Error('Network response was not ok');

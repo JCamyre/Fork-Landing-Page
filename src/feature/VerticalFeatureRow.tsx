@@ -1,11 +1,14 @@
 import className from 'classnames';
 import { useRouter } from 'next/router';
+import type { ReactNode } from 'react';
 
 type IVerticalFeatureRowProps = {
   title: string;
   description: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
+  video?: ReactNode;
+  videoAlt?: string;
   reverse?: boolean;
 };
 
@@ -30,7 +33,10 @@ const VerticalFeatureRow = (props: IVerticalFeatureRowProps) => {
       </div>
 
       <div className="w-full p-6 sm:w-1/2">
-        <img src={`${router.basePath}${props.image}`} alt={props.imageAlt} />
+        {props.image && (
+          <img src={`${router.basePath}${props.image}`} alt={props.imageAlt} />
+        )}
+        {props.video && props.video}
       </div>
     </div>
   );
